@@ -2,7 +2,10 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import dynamic from 'next/dynamic';
 import Link from "next/link";
+
+const Card = dynamic(() => import("../components/card"), { ssr: false });
 
 const Page = (_props) => {
   const { t } = useTranslation("common", { useSuspense: false });
@@ -17,9 +20,11 @@ const Page = (_props) => {
       <main>
         <h1 className={styles.title}>Blog Page</h1>
         <Link as={"/"} href={"/"}>
-          <h2>Index page</h2>
+          {t("key_2")}
         </Link>
       </main>
+
+      <Card />
 
       <style jsx>{`
         main {

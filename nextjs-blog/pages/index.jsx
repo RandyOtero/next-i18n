@@ -10,7 +10,7 @@ const Page = (_props) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Create Next App </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -20,7 +20,7 @@ const Page = (_props) => {
           <br></br>
           <br></br>
           <Link as={"/blog"} href={"/blog"}>
-            Blog page
+            {t("key_1")}
           </Link>
         </h1>
 

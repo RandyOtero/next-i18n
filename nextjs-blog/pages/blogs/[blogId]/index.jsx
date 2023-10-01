@@ -82,6 +82,13 @@ const Page = (_props) => {
   );
 };
 
+export const getStaticPaths = () => {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  };
+
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale ?? "fr", ["common", "blogs"])),

@@ -94,13 +94,6 @@ const Page = (_props) => {
   );
 };
 
-export const getStaticPaths = () => {
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
-};
-
 export const getStaticProps = async ({ locale, params }) => ({
   params,
   props: {

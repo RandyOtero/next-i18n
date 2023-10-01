@@ -1,3 +1,5 @@
+const path = require("path");
+
 /** @type {import('next-i18next').UserConfig} */
 module.exports = {
   debug: false,
@@ -9,11 +11,12 @@ module.exports = {
   },
   trailingSlash: true,
   /** To avoid issues when deploying to some paas (vercel...) */
-  localePath:
+  /* localePath:
     typeof window === "undefined"
       ? require("path").resolve("./public/locales")
-      : "/locales",
+      : "/locales", */
+  localePath: path.resolve("./public/static/locales"),
   fallbackLng: false,
   reloadOnPrerender: true,
-  ns: ["common"],
+  ns: ["common", "blogs"],
 };

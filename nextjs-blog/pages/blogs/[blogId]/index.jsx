@@ -83,13 +83,14 @@ const Page = (_props) => {
 };
 
 export const getStaticPaths = () => {
-    return {
-      paths: [],
-      fallback: "blocking",
-    };
+  return {
+    paths: [],
+    fallback: "blocking",
   };
+};
 
-export const getStaticProps = async ({ locale }) => ({
+export const getStaticProps = async ({ locale, params }) => ({
+  params,
   props: {
     ...(await serverSideTranslations(locale ?? "fr", ["common", "blogs"])),
   },

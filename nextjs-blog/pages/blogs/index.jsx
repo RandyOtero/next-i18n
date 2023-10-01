@@ -94,8 +94,7 @@ const Page = (_props) => {
   );
 };
 
-export const getStaticProps = async ({ locale, params }) => ({
-  params,
+export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale ?? "fr", ["common", "blogs"])),
   },

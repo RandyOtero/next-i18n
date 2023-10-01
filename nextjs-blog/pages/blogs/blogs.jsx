@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
 const Card = dynamic(() => import("../components/card"), { ssr: false });
@@ -13,15 +13,29 @@ const Page = (_props) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Blog</title>
+        <title>Blogs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className={styles.title}>Blog Page</h1>
-        <Link as={"/"} href={"/"}>
-          {t("key_2")}
-        </Link>
+        <h1 className={styles.title}>List of Blogs</h1>
+        <ul>
+          <li>
+            <Link as={"/blogs/[blogId]"} href={"/blogs/1"}>
+              {t("blog_1")} #1
+            </Link>
+          </li>
+          <li>
+            <Link as={"/blogs/[blogId]"} href={"/blogs/2"}>
+              {t("blog_2")} #2
+            </Link>
+          </li>
+          <li>
+            <Link as={"/blogs/[blogId]"} href={"/blogs/3"}>
+              {t("blog_3")} #3
+            </Link>
+          </li>
+        </ul>
       </main>
 
       <Card />
@@ -80,9 +94,17 @@ const Page = (_props) => {
   );
 };
 
-export const getStaticProps = async ({ locale }) => ({
+export const getStaticPaths = () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps = async ({ locale, params }) => ({
+  params,
   props: {
-    ...(await serverSideTranslations(locale ?? "fr", ["common"])),
+    ...(await serverSideTranslations(locale ?? "fr", ["common", "blogs"])),
   },
 });
 

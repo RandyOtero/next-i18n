@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const Card = dynamic(() => import("../components/card"), { ssr: false });
+const Card = dynamic(() => import("../../components/card"), { ssr: false });
 
 const Page = (_props) => {
   const { t } = useTranslation("common", { useSuspense: false });

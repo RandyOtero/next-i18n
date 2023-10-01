@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Card = dynamic(() => import("../components/card"), { ssr: false });
+const Card = dynamic(() => import("../../../components/card"), { ssr: false });
 
 const Page = (_props) => {
   const { query } = useRouter();

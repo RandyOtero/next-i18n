@@ -6,17 +6,17 @@ module.exports = {
   cleanCode: true,
   i18n: {
     defaultLocale: "fr",
-    locales: ["fr", "es"],
-    localeDetection: true,
+    locales: [ "fr", "es"],
+    localeDetection: false,
   },
   trailingSlash: true,
   /** To avoid issues when deploying to some paas (vercel...) */
-  /* localePath:
+  localePath:
     typeof window === "undefined"
       ? require("path").resolve("./public/locales")
-      : "/locales", */
-  localePath: path.resolve("./public/static/locales"),
+      : "/locales",
+
   fallbackLng: false,
   reloadOnPrerender: true,
-  ns: ["common", "blogs"],
+  ns: ["common", "blogs", "blog"],
 };

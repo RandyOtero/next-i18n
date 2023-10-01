@@ -1,9 +1,10 @@
 import Link from "next/link";
+import styles from "../styles/Home.module.css";
 import { useTranslation } from "next-i18next";
 import Card from "./card";
 
 const Blogs = () => {
-  const { t } = useTranslation("common", { useSuspense: false });
+  const { t } = useTranslation("blogs", { useSuspense: false });
 
   return (
     <>
@@ -11,18 +12,18 @@ const Blogs = () => {
         <h1 className={styles.title}>List of Blogs</h1>
         <ul>
           <li>
-            <Link as={"/blogs/[blogId]"} href={"/blogs/1"}>
-              {t("blog_1")} #1
+            <Link as={"/blogs/1"} href={"/blogs/[blogId]"}>
+              {t("blog_1")}
             </Link>
           </li>
           <li>
-            <Link as={"/blogs/[blogId]"} href={"/blogs/2"}>
-              {t("blog_2")} #2
+            <Link as={"/blogs/2"} href={"/blogs/[blogId]"}>
+              {t("blog_2")}
             </Link>
           </li>
           <li>
-            <Link as={"/blogs/[blogId]"} href={"/blogs/3"}>
-              {t("blog_3")} #3
+            <Link as={"/blogs/3"} href={"/blogs/[blogId]"}>
+              {t("blog_3")}
             </Link>
           </li>
         </ul>

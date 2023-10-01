@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
 const Page = (_props) => {
-  const { t } = useTranslation("common", { useSuspense: false });
+  const { t } = useTranslation("common", { useSuspense: true });
 
   return (
     <div className={styles.container}>

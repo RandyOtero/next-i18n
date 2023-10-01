@@ -2,19 +2,20 @@ import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import styles from "../styles/Home.module.css";
 
 const Card = dynamic(() => import("./card"), { ssr: false });
 
 const Blog = () => {
   const { query } = useRouter();
-  const { t } = useTranslation("blogs", { useSuspense: false });
+  const { t } = useTranslation("blog", { useSuspense: false });
 
   return (
     <>
       <main>
         <h1 className={styles.title}>Blog Page ID: {query?.blogId}</h1>
-        <Link as={"/"} href={"/"}>
-          {t(`blog_${query?.blogId}`)}
+        <Link as={"/blogs"} href={"/blogs"}>
+          {t(`blog_name_${query?.blogId}`)}
         </Link>
       </main>
 
